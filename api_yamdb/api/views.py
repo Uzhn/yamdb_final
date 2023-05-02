@@ -1,29 +1,24 @@
-from django.contrib.auth.tokens import default_token_generator
-from django.db.models import Avg
-from django.shortcuts import get_object_or_404
-from django_filters.rest_framework import DjangoFilterBackend
-
-from rest_framework import filters, mixins, status, viewsets
-from rest_framework.decorators import action, api_view, permission_classes
-from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.permissions import (AllowAny, IsAuthenticated,
-                                        IsAuthenticatedOrReadOnly
-                                        )
-from rest_framework.response import Response
-from rest_framework_simplejwt.tokens import AccessToken
-from reviews.models import Category, Genre, Review, Title
-
-from api.permissions import (IsSuperUserOrIsAdmin,
-                             IsSuperUserOrIsAdminOrReadOnly,
-                             IsAuthOrSuperUserOrModOrAdminOrReadOnly
-                             )
+from api.permissions import (IsAuthOrSuperUserOrModOrAdminOrReadOnly,
+                             IsSuperUserOrIsAdmin,
+                             IsSuperUserOrIsAdminOrReadOnly)
 from api.serializers import (AuthUserSerializer, CategoriesSerializer,
                              CommentsSerializer, GenresSerializer,
                              ReviewsSerializer, TitlesGetSerializer,
                              TitlesSerializer, TokenUserSerializer,
                              UserSerializer)
 from api.utils import send_confirmation_code
-
+from django.contrib.auth.tokens import default_token_generator
+from django.db.models import Avg
+from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, mixins, status, viewsets
+from rest_framework.decorators import action, api_view, permission_classes
+from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import (AllowAny, IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
+from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import AccessToken
+from reviews.models import Category, Genre, Review, Title
 from users.models import User
 
 from .filters import TitleFilter
