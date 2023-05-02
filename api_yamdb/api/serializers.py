@@ -83,7 +83,7 @@ class TitlesSerializer(serializers.ModelSerializer):
         """Валидация года."""
         if data > datetime.now().year:
             raise serializers.ValidationError('Мы ещё не в будущем!')
-        elif data < 0:
+        if data < 0:
             raise serializers.ValidationError('Запрещены отрицательные',
                                               'значения!'
                                               )

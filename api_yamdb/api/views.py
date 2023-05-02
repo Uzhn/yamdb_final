@@ -47,7 +47,7 @@ class UserViewSet(viewsets.ModelViewSet):
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
-        elif request.method == 'DELETE':
+        if request.method == 'DELETE':
             user.delete()
             message = f'Пользователь {user} удален.'
             return Response(message, status=status.HTTP_204_NO_CONTENT)
@@ -117,9 +117,8 @@ class TitleViewSet(viewsets.ModelViewSet):
     filterset_class = TitleFilter
 
     def get_queryset(self):
-        queryset = (Title.objects.annotate(rating=Avg('title__score')).
-                    order_by('-rating'))
-        return queryset
+        return (Title.objects.annotate(
+            rating=Avg('title__score')).order_by('-rating'))
 
     def get_serializer_class(self):
         if self.action in ('list', 'retrieve'):
