@@ -1,5 +1,5 @@
 ![Workflow](https://github.com/uzhn/
-yamdb_final/actions/workflows/main.yml/badge.svg)
+yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 # Проект YaMDb
 ---
 Проект YaMDb собирает отзывы пользователей на произведения. Сами произведения в YaMDb не хранятся, здесь нельзя посмотреть фильм или послушать музыку.
