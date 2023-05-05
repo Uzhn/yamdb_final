@@ -14,12 +14,9 @@ SECRET_KEY = os.getenv('SEC_KEY', 'EXAMPLE_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['ALLOWED_HOST', 'EXAMPLE_HOST']
 
 AUTH_USER_MODEL = 'users.User'
-
-AUTH_USER_MODEL = 'users.User'
-
 
 # Application definition
 
