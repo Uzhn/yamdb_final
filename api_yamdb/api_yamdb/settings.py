@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SEC_KEY', 'EXAMPLE_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv(False, 'EXAMPLE_DEBUG')
+DEBUG = os.getenv('DEBUG', 'EXAMPLE_DEBUG')
 
-ALLOWED_HOSTS = ['ALLOWED_HOST', 'EXAMPLE_HOST']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOST', 'EXAMPLE_HOST')
 
 AUTH_USER_MODEL = 'users.User'
 
