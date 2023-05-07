@@ -14,7 +14,9 @@ SECRET_KEY = os.getenv('SEC_KEY', 'EXAMPLE_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)  # Если ставлю True, pytest не проходит
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOST', 'EXAMPLE_HOST')
+ALLOWED_HOSTS = [
+    os.getenv('ALLOWED_HOST', '*'),
+]
 
 AUTH_USER_MODEL = 'users.User'
 
